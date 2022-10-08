@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
+    <link rel="stylesheet" href="css/default.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/carusel.css">
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <div class="col-auto px-0 bg-light">
+                <div class="d-flex flex-column min-vh-100">
+                    <a href="/" class="d-flex align-items-center text-decoration-none toggle_display"
+                        style="padding-right: 20px">
+                        <svg class="toggle_display" width="100" height="100" viewBox="0 0 100 100" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <rect x="-31" y="-11" width="156" height="114" fill="url(#pattern0)" />
+                            <defs>
+                                <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_350_497"
+                                        transform="translate(0 -0.0131579) scale(0.00125 0.00171053)" />
+                                </pattern>
+                                <image id="image0_350_497" width="800" height="600"
+                                    xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAJYCAMAAACtqHJCAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAABpUExURUdwTKrjwrnnvMjstY3azVjL45zfx2rQ23zV1ETF6+v2p9nxrmHsvkDg1FPnxxjS7gvN97vrvyvY4pXdyo3hyW/T10jM5bXmvdzyrXTfzG3Z1HPzsYXezIL4p6HhxIbY0HrsuWHlxSnS6qYG4lcAAAAjdFJOUwD+/v7+/v7+/v7+/v7+/v7+G/7APMC/xcF9oP1V/aTTv9rWLBU+1AAAHiFJREFUeNrsnQtXqloURk0d2ZDU8JAnkBrK//+Rl/2CtTdgyYHqwpyayuZh5441+/YCby0WAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/8zjl3l4fLiTZQ9WvYhWUT+25X1b3v+RmEKarCBrfVP3dinMzTyZ+0O3K0t117cSudgpy0rd9W2l5ZAjyxtCKCe0F1oNM+CPdRvhburBLYpRBAGZIEoN87XuzI5HIYq1o8WSpf1yr5QW9mG5bPVk5YuyrFRxbjhvQj2CBWuFSRKrTJsm2+C1tcQ8OTl6eIIgM0mQddMLlxphmhhJWlOkCo46T7ozxKVFHRuVI60ZErk5lb15T5GfIKvWCNnK0KiGhCvOEwQBkSCPnQnidJGKNPWos6OWw7ubh25RloEfVo/WEKlcEY6Yl1WUrG7mR1Q5st0KaZwZJAiECbJucURYUevhKfLYcGQpcyTMkIdOLYIYCedajQ7E6lE3JM0EWTVDRDQdzpGqAXEZ0qNrR5DJYmZXQo/1jfjwO5HOs1pLMc2q/aj0eOhMkKYkLkCW3aevwhCJalFud+t+b15LUqXK10VBkMknSGeP/lA1I0GGNAOkio/qhJbJkLBdb8kQJ4c8gVWd2Oo+keWf0RKGrG6dxqonW1spylY+kCBgE2RdOdJ9ytfv16sAae3Ul3UPIiLEi5GHjtO9Mj8CVdo1ibzpVkuGtJ7MCk7udiTIPZMtBJm4ILUjN3v01i7k1iURd6/6j9sXDxshcnN61XJVpM6P1RcvE0ZSk6pRJ0GgmSB/7uCv+frrHsqbuo/CW/30ph7Vw5u6O/5WD98KgsxJkMf1H/5j3McbgsxBkLVTBEEQBG5MsRAEQaAlQR7XCIIgQIIgCPTqQawhCIIg0J4g+o4gCAKtCWIUQRAEgc4EQRAEARIEQeBeQVwTgiAIAiQIgsC9CbImQRAEbiSIlgRBEAS6ehCmWAgC3QnCFAtB4GaTzpV0BIHuBKEHQRDoEOSRJh1B4JMEoUlHEGCKhSDQs0lHEAQBplgIAkyxEAQQBEEAQRAEEARBAEEQBBAEQQBBwAkSIQiCAAmCIAjSO0EiBEEQ6EqQiASZuiBPa3VHEKZYQIIwxYK7BVH58YQgTLGABBknQSIEmUEP8oQgJAi0JYidYyEIPQi0JoiJEATpmSARgkw/QRCkZ4JETLGmLojpQOhB+iSINoQEmUWTToL0ThDOYk1+ivXEWazePUjEFGsGCcJZrH4JEnEdZA49yBPXQXr3IJzFmnyCPPFRExIEPptikSB9BSFBJp8g+jTWK/8x7hTExgcJMmWqAGGKdb8gpSERPcj0m3SmWL0F4ULh9BPEzrEQpM8UKzJNCIJMXhCmWH0SJOIs1jwEYYrVL0G2WxKEKRbcSJCIHgRB4JMmPUKQGfQgXAfp2aSTIJMWpHSDJr13gpgmnQSZQ4IgSI8E2eoIQZApJ4gNEHqQXk06FwrnkCAIQoJApyDWEZr0fgnCdRCadLiZIJzmnXwPor5IkL49CAlCDwLtCWJnWQgy8QShByFBoLsH0Q8TT5D8cvmIhxZkS4KQIP9KnCh++t+ZvJdchk8Q06YjyJR7kBETJM4/3i2Xjx+V5KK/iWRgQUiQOSTI2pzGGiFB8neffGqCkCCzmGKNdBYreW9wSSYmiDmPhSDTbtLNLGvoBInf389NRfJpCRJxoZAE6enH+Xx+P5uHd/tSPf1QLV30tzCGICTI5AUZJUFS58T5UlKJck5/TJDz8IJs6UFIkP4BonDnrpLUDkxKEBJkJoIMnyDWB9ly5Hoknp4gJMi0BVmPcR0kfVZkfqpkz43TWEmaljOwNG2WWBIOeVcbq4XE7N9W+nn6odbpVZfn5/Pz8zineUmQGSTI0J/m1QV5/uycVXrVdVtu+Xzxt83L4YtnlzpiIhauaiExhX8+N9XLr/q45e2aq+/nLPZnigV3T7H+DC1IyW1Bcl3cFVdRvrEekf1KpjcJFlKxux8PyVUe/JJcmpswxYKf60EuLVOsRTjhCsmlO89+hFxlhZvNwyOI8k/CQ19HFIQEmbwg66fhe5D9JxVZluxebVTdy6/U230vBTGbeIJcn82g2z/z/Njbm9gIQeC3JEhe1mbJNe2qnaxc+2w22uuXetFlSKoHpCBmk8Qt1PuYB/3avVd8FaNioz2CwC/pQWJX+dcsj1sFsrWrTzIlmds8doLsG4LsQ0FKMjUQp3YpXci9y/3VW8fptdocQeCXJEhVpEaSxmlYV+Bx1VTbAbn362eCJL5umS9nLtMKQeBXCVJW5W5f3tXNVG/uB4haK5r4clqkt4+tIGrBSxC9NpELot4v+l2uC7HzXrzfZe/tjiBwtyCD//8g8etuZwXZKcrnuiG5quXdVRZWokb2OzNNSvVu8lsya22F78LVqVktDr73zqDZbwRB4NckiP5Jrj2oLXGXOhIz7l8myYw0tuAVMkHMHklti7e7PaB87RWtOd4OQeAXCaKulO8CTInmZsGvKzsoCtpLEFnhjXKPxb7mOMGnXBAEfqEg6qNSmS9JR/0HZX+vIIvGwYNPDb8iCPxGQawlr5UgqZ1NNX7Il0V+DAQ5dQpybAhyrAQxB8+/QZAVgsxBkM3ogpiSP5bsjoVaOKmF8Ie8HFVb745egui9a0HKpUCQcsS6cAxWamvE7iQI/KoEsb2zruGjKqZMvTiGghTHnSviVG8rE0SvcxWuZfHK3RzbuFAfRiRIY49hBFkhyNQF2XyTIIv8qEl0/StOwQb1+pYNxMpgQYws6n0D+06NPYYQZEWCzCJBNt8iiCjrXNRzHTFmMK5lKv5BEP+fEx9HEcRFCIKQIANQ6CLNaxeC6yCiyJPQoPjrgkjRWtKLBIFf0IPEWXEKyrGs8UN5S4wr6mXhB4gaOmSuyNVSLONFDdilQ30kb8TKohfSwM1wjwEEWbkMQZDpCrLRt8EFKcp69Gt0kR3U2MFMg0xBp+Eex4OtYbNtfSL4pAeKWod6U7G990ZidaoH/D0GmWKtSJBZJMhmaEGSg0aESJzZIbNkFmoD4sIMFLUQB1Hkib+5v7Ie8Tau88K+9eEwRoKsEGTiCTLGFCtxJVmk6vePxHl29Gs0det1HxKnwepFbos8NauDtbcFcXYdzIfpc7c4uCClHCutCIJMuknf6AgZdorlSvKlvOln++K0kEX8ou7FSa/WpGLGZTc4nOyz2PkTQRbVmx9ORbU3CQI9E2SEHiR/MShDxHNRlVJ80KMvB7HRyyk8wMGu1Ovr+jZby3I3I8G7e3uHewyXIAgy7R7EKjLwad6keGlSiEqKmxt4H87KGqvzxVcFqfys3rgYSRAjCYJMOkE24/z5g2aFZ34hBRscgs8Xpt2rT3rAO2umNZBNkNz3ZL+ZeFhBVnzUZA6CbEwfMvyFwjgLqrSRMkKRovn7T5JTl1wqnnyflBBei1E29vWhbV4N+8dJ7GleEmTyTfqIHzVJ0tOpLPPTKWsvzjjNTkW5Os07dy9eilPjN6PEeeN3peTNbfSx3Tsn+cBl/Kbd4KMmJAjcEIQEoQf5HxKnafwdgtCDkCD/R5Lv+HOI9jQvCTL5HmQz/EdNWrsEWcH5qDVl/mBoPLYgzg8EmS6bjcuQYQW5+TM8voz8A/59+L9p2yKIbUBIkEkL8uRugwoS3yzRy9j1+02CkCBzEWTwK+mJKdFL68rUrLzrz3nG6ccdbfd3JQg9yCwEMREysCDn8tYuQZkuZ3W/RxA9Kft6U/GNgpAgM0iQzX/snQt3ojoURkV5uWq1UaQXhuXr///IS16QYLBqIaHhS512hEC7ZmXPPidJOcMbhBdGNxa15QVnXwOkeK2E9L/ha9rCIMhBBgaEtUvPWH+xYvql52ZuAWkIASDetjQZF5A7DMg/fwCBQWCQtwGhpZn/GYKsizw+LiAbSwbheQgA8ReQRDpkWEBEjfJOqVpWuFkc7wJSlRda01zsSyyuWuXzy+b+VsJI1elCSz5fL0oVq01bFb260IrrlxF2ntSAwCAwyLuAsMZYUFcEiYCDftEAqa7yTE0OWVTsL/ySUl7xT9Q8V+9X/pO3q19X+a34+7pjxU/TP8XwgHwIh8AgPhskERNZYwDCqzWTrgl4U0YsuepFzbNL2+NyV069vV+lHf/XVIKWddO1QurlaCEWDOK5QUZYB1FH5kUNsEyAZNcOAte2B7njo72wvD9XqYCUPdcNGWJhFgs5yLuAbC+XzXajVD8n9M12Iz4XSsqwla/2y1YCIs/JS5sLL6Kb2uHS3HBbY7ZV77zZjGOQFQzit0Hoa3CD8DrlmSgDLQbQhRZGr3mpPylVzWmV5o1SNJq/2cgeJX+zaY/LR2ttDddxQNru6i231dCAwCAwyG8AOcpq6UUzoumbTD3YFDnfbthMU6YUWBdPjbuqFGxlkk6aKuxs3otU17ZUetO5zNgd5KXDJ+kcEQDieZI+lkEWCzG4s3ZEHxcdQLa6ZmjF9K3eg7unM8Av3U6kbG4ib1DpDF4H/af7XjUxFgDx3yBDA/K5ZYXM2V+2rCL6kf5luyUMkM9mZFes61ad67ryQwog/Fr1RySijxY2yXvcnTvyI8M+9qeZ5kUOAoO8CgirjE5vWdKi5dvPclHwvxSikPlWligseRl1dYwRUVldAYRdov6IBe9jnrvl5653vYd9cNyqaQDEb4OMMM3blnFmWHx+VvzrVdDTFmrmb/SBXn52SjkfWS/1R+TFpXuc8NmtopuNUSd91SylAxDvDTJ0kt4CUmll0rN2tBb9Qze7B8RcN71n8a97ee2k4QH55vkHDDIDgwyfgyh1znOFj2JhBqSbPl9/AkSM+OoRINnDI0OFWDAIcpDfAUJaPvJ7PxTKibblHUDybq/HMZMVQL45HjCI94BwRAYGhBYrz2WGvBcfmXJyXygnDYA0Pfj7Tq+KdfgkfYC0363vyHBJOgyCEOtlQBgCckDf9vWbtnY5PdkCwt7cAcKuUADp9sr4LXtGJj+ZPTwyjEG4QgAIQqxXAdkrA5oXZv68aW/F8K/Y0DUAstcB6fTi36BvxN+ffNj9dwbBdnf/Q6xk8BCLDfBmQJdalXINEAFPN0a6B2SvAUJMldY1HEx11EcwCHKQWQCSjgsII6Ra9APSGenV/idAxIjPHQKChcLZAJKOYZCd/j9+RnR6miLprOcuv4+wdjog+v1Yl11fEsLPZQ+PDGUQ7MVCiPUGILt6PO7yvpO0wLOsaFuyrppCeA3ovVLzNr+7X8V67G/G78BOdargdo/AIGgOQyy9bPM9PW3JZ1FSXfnfPWPEaEWh87v7EX6TvbqWTkiDg7lMNHIQtKkY5CEgWk30W4eQbC/LmreAlLyLOhBL0akpfUjK5iZWAIFBAIgVQDLJw63Isqy47Xb3gBSyR5HnIhgjDUdlVV+Xlez9DQZB+xuAfO2+egH5oh+FMvq/+EfnS6FkHF/tB+kc+/oSX5qT9IY7rSo6OwCDoE0FEF74+dFJZfjfZCl08Ul+bXsQcZA1OcxLeZXCCAdE72c+AoOgTRQQ0gVkUX7prcy7PQrlLDEd/FJvCkDQpg0IYf+b9z1FJNfHeXeo17lHcdejZUiZt6p2Oh4ya2HfQJsBZpfvBv6VWwACQH6jkN5HGZL8jh5SNmOdTUvd98g4Vjf9l9CrW4vHrXkAL/0Gt6z7LW/DPs0aBgEgv0Lk0aghhrFaFWWel03528x0leFgRme28rzQ6+befwMy9MPeAQgAQXsMyBKAABA05CAABIC8a5AlAAEgaMhB5gtIBEDeBUQKBIDAIGhGgwhEAIi/gFCBRADkXYMgxPLfIBEM8guDMIcAEN9DrAiAvAMI1kFmEWJFMMgvknTkIEjS0R4k6QixfDdIxC0CQGAQNBhkWECW3CIAxG+DsCwEgMAgaGaDsLWQKQBCMvKXAGkUAkA8N8hEpnkPQRB8/7EQa4kQy3ODRJMxSBXQVvwZQJYwyCwMIl7uATkxQF5VyOC/KfgiIMhBYJApA3L6+Pio3AICg3ifg0STWAfhgBxeuqb4WNWEZG4AQQ4Cg9gFJH7ZIN+sUPnJESAwyCwAiSayDvKOQf6jfLgCBCHWXEIs+nkaBolfNMh/K4cGASBzMIh0yFRCrNcM8u3SIMhB/G9Rs1txAoDE1CASEHI6nX4eeOzZO+4MsoRBZgDIZGaxKB8SEMISkh9HHjPIyrFBlgDEb4NEE8lB4rpJQAoGyOlnQBwahCqEvQCI5yGWw98HyYpKM0gsknS6LytYmhOSqsgUQD5WK4fTvDDILHIQZwY5hWF8IIpB4oPM2HvnfOl/3acpGETggRxkDkm6G4NUYRzGcdECEkhADr37Tgo2cVQpgDg1CP0DQPwFJJIOcQIIFUjYSEPNQQ69BqEDs1GIa4MgxJqJQRzlIGVYt/j8UojFk+PTRAzCIAEgfhvE3SwWN8jZaJD4aYOsYBC08QwiFOLOIKHJIDTEinsBWU3GIEtM8yIHGdUgfSGWumo4UYMsl4IRAOK1QRxO83YMEioGeQxIa5AlDII2pkES6yFW1tbifBBiaRuz1GseAZJlmVVARJoOQDxP0q2GWEWapmeihFiqQUKzQQ7KtpM7QJp4i3zbtIkIsTCLNYskPUpyS9+RpGmYpqXBIGVMY6zWIN2NWZUJkKVikBPbd0IsAoIQazYGsbYOUtUCSRsmNIOEOiBBrC+rn3oA6WTslUVAkKTPJ0nP7QFSGySVgKQqIFqI1V1WlzsX64EZmAFhfFh7ggNCrPkYhL6sGqQFpGMQHZDYtO/km/LRArJqF0VWLgyCEGsGOYhlg6SaQVLdIOcfAQl0gyx1g6zsGgRbTbw3iEhDjq4ACbWE5AmDBJQQNcRybBAA4jkgfCLLjUFqPnSDhD0GiSdqEADiOyAJl4gjg9AI6xmDxP0GaRMSXhENBkEbOMRKHBqEzmm1BgmfMgglBAZBs5eD2DVI0jFIqi2KNAYJe/adPDTIEgZBGyEHsTyLlagGUXMQzSBhLyA9q4a8FgEMgja0QRJ3BqGrhr0GCdWNWdqUltEgSxgEbaQQy6pBkvrDkINoq4YHyodxWf2xQZYwCNqwgCSWc5CEKUQJsdKGCQ0Qfd9J78asAAZBs5Gk2zJIlnQMooZYqWqQUAmxHhgkUA1SM2IRkACAIAcZxSA9gKSaQTp7380GCZbtlBbf+QGDoP3pHCRJ+g3SLqtTg4ThE4AEikHYoojVHCQAIHMJsWwapH6ZAEm1ECvshFj6snprkHbVkP8CrD2DBDAIcpBRDGIG5JSmqkHCfoPEqkG0EKtuNg0ScIcAEBhkSEBqhfQaJH0CELoqooZYgQYIDILmk0ESBZB+g9w9EEgJsRwaRCgEgMAgwwLSGiRRDZL2G6S772QaBglgEBhkXEDozizVIOkTBqGEKIAEgTuDIAeBQcY2SKIapCfE0lcNg7gxyFkDJLBvEBZjARAYZCRA2KqhySBHHZDO804mYhCspAMQC4BoBmlDrLTXILT1GCSwbxAk6QDEmkFS3SDpQYm3YhMgmkHYqrpFg4hVEIRYAGQ8QLo5iGqQ9EWD8AFrPQeBQbwGZG0fkEgzSGI0yCHtGiQ0GyTWDRLYAyQQ/oBBYJBBAYk0g3RDLDGbdkw1g3QfSqoYJFYMQj8ym4AEmOb1H5C19RAresogqdkgZx0QZdUwYMvq9gyCaV6EWKOHWEkXkB6D9IVY6r4T9svqQWYZEMxiIcQaFBD2GK6rGZBEM0gaHo0GofGWNAh7nIO2MctqDhIgB/EckHUkXtZ+5ZYBUhoBSTSDtCFWwQCppEFCJcRSN2bx2uqWcxAYBAYZth2pQEifQRKTQci5FYiY8z0ZEhKiTPnCIGgDGWRtGZBFVVRyRD3MQeomoSD1NfLyMytEZQqxatUU1cIeIA0hAMRvg6xthlhaY4BEZ+WNHmKZdlD2G8Rug0HmkoPYNkgXkMYgibL3XTeI2s6hlqTH7dZe24CwOQH6CYB4bJC15STdAMjxZYOEkzBIAIPMJElfuzMIXRNp5nxpkn58wiCTCbHEC4D4bhCHIVbUn4OkRoOc2ZzvJAwiQiwYxO8cZM0+HBokbwBJk+QpQOLJhFj0BYN4HWKtHSbpBduYVb5kEP4Q+EICEroPsWAQGGSsllMoiCFjP6rL6lojyjPgJ2EQrIN4noNwh7gBhBTHUl81bA2SmAGprzkUpAWkjbccGIT9ASBeG0Q4JHf+s+hzvswg5U/XOA2xYBAYxBkgGStl+OPGw3Po0CC8YZoXBrHTjiogi+x4PP68MVfbmGUdkCVCrFkA4m4vVr9Bnmxs30noMsQKEGL5HmKt2VzvXwXEcYgFg/jd1munu3k7IVb0jkHC0G0OAoN4DUjkdh2ka5DoRUDY807kqqHddmhydADiMyBrkaZPAZDXDcJ/GTdz8eN+NxEWAPEakGg6s1jRywZhhFQLZ4AgxJoBIOupzGJRgbxchoFkjn7cQ9A0AOI3IBOZxapoNeqk+Cv/dN/IQeYASKMQ94Asjhbr+MAgaM8bZD2JrSY0XPpDQ+0bgMwDEO6QdY5/DBgEbdoG+VMNBplHDsIdAoPAIGgPQiwYBAZBe2CQCAaBQdD6DDKRaV4YBA0G8ckgMQCZjUEACAyC1m8QhFhvGCSWDgEgMAgaDDJPg0RrGORtgwiHABCfQywY5O0kHQaZh0HYC4C8DohUCADx2iBrGOS9HIRGVzEM4jsgEQzydogVI8Sah0GwWfG9JJ0FWfH/7dnNjpswAIVRVTLBs0MaVX3/N20JPzYOhoRkuoBzwnQy3X+6diKQky+Ib9KPBmJBLAgW5NKB+BTrvQXxPYgFoR7IPRGBnDsQC3IsEN+DWBB2F0QgFwjEF4Wv+3NzxLpGII0FObQg/+qwII5YVBdkPmMJRCA8Log7iDsIm0csC2JB2FqQ+yMQgbAWiAURCFtHrLEQgQiE+hFLIAKhcsSyIAKhfsSyIAJhZ0FuAhEIFkQgHFiQ/kcgAmEtEAsiEDYDsSACYeOI1R+yBCIQLIhAOBKIBREItUB+WRCBYEEEIpDDgfiYVyBYEIEgEAQiEAQiED4WSCcQgWBBBIJABMJnA+kEIhB2FqQTiEBwxPpwIEEglwikE4gFwR3EguCI9Z8XJAjk9IF0LunHAgmOWOcPpLMgbyxIGCZEII5YWBBHLF5ekP4lkDMHks5YP+x3/1RfP+o7Pd/p1/01Pvef16QBEcj5j1jd1wFN/4yv/nlV2z/jq03/Of9Puy2mV//UhPJd6N+ExSuG7K/+qbmFcJte6Y1Azr0g3UuNZFlkfTTFX0+FsUxkkGfRrGYxd9EuCtlPZWxjSCUvIuxkEbIs7q+5EAtymUv6mEj3TB55KNO/9xGZWtkKpS1KyRYj+9WsD0jM38S8lpTHeiVhXJBpMmIsFySk/YiPw7EYkWk/xmAEcvoF6YpOqnWMv5vpzzyFr/GZy/iqTki+IOmPIov1Y1YcM4mLNYnpmX/qx62QHbSmKuKcRVyp41aOiAW52IJ0r11F5hNW2pTpLpL+WWmkLd7ncTyxIEUm5YbkiVQbmRYklK+Qjly1C8gQSlmKQM4bSFdeQrrdEWmyPSlOU8O7VMZX7YzVzr+yW0iZRrNyDYnzhOS/8nvIVh3LCXnckJA2JD5ezlMeix2xIFdYkIckut1r+lxLfi/JFiQ7eW3f1pt8Q8YsmpTHxmVkvq4XGzLkUV5GwvJ0VV7Vs4+ynvoUa6jDglzlU6yHu8gTH2fNR6zFhkx3kaZ2U2/zCWkfryFN/UOsVEfMriLFhqRGqiuydsRaLMhqGvk5K7UikFMvSFe08Uwm02akPtI9ZPHsXdaXF5E2e5ppPpp24+Osh3tItiAbn/mGxU8+Iuk2sjokiwv7vCICucbHvO8YOkmfZTXvfG94zMZnvHFvTuZvQ14y3EAcsQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4hL89G5cgCFLA7gAAAABJRU5ErkJggg==" />
+                            </defs>
+                        </svg>
+
+                        <span class="fs-4 h1 toggle_display">SoundMatch</span>
+                    </a>
+
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item">
+                            <svg class="icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill="var(--orange)"
+                                    d="M17.3583 6.17498L11.9 1.80831C10.8333 0.958308 9.16665 0.949975 8.10832 1.79997L2.64999 6.17498C1.86666 6.79998 1.39166 8.04997 1.55832 9.03331L2.60832 15.3166C2.84999 16.725 4.15832 17.8333 5.58332 17.8333H14.4167C15.825 17.8333 17.1583 16.7 17.4 15.3083L18.45 9.02498C18.6 8.04998 18.125 6.79998 17.3583 6.17498ZM10.625 14.5C10.625 14.8416 10.3417 15.125 9.99999 15.125C9.65832 15.125 9.37499 14.8416 9.37499 14.5V12C9.37499 11.6583 9.65832 11.375 9.99999 11.375C10.3417 11.375 10.625 11.6583 10.625 12V14.5Z"
+                                    fill-opacity="0.72" />
+                            </svg>
+                            <a href="#" class="nav-link active toggle_display" aria-current="page">
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <svg class="icon" width="20" height="21" viewBox="0 0 20 21" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M1.66669 9.39156C1.66669 5.40134 4.86697 2.16663 8.81472 2.16663C10.7105 2.16663 12.5286 2.92782 13.8691 4.28276C15.2097 5.6377 15.9628 7.47539 15.9628 9.39156C15.9628 13.3818 12.7625 16.6165 8.81472 16.6165C4.86697 16.6165 1.66669 13.3818 1.66669 9.39156ZM15.8445 15.2119L17.9734 16.9303H18.0103C18.441 17.3656 18.441 18.0715 18.0103 18.5068C17.5796 18.9421 16.8813 18.9421 16.4506 18.5068L14.6839 16.482C14.5169 16.3138 14.423 16.0853 14.423 15.8469C14.423 15.6086 14.5169 15.3801 14.6839 15.2119C15.006 14.8919 15.5224 14.8919 15.8445 15.2119Z"
+                                    fill="var(--primary-text)" fill-opacity="0.7" />
+                                <defs>
+                                    <linearGradient id="paint0_linear_350_470" x1="10" y1="-6.16671" x2="-6.66665"
+                                        y2="10.5" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#FF7E3A" />
+                                        <stop offset="1" stop-color="#FF9A45" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            <a href="#" class="nav-link link-dark toggle_display">
+                                Ricerca
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <svg class="icon" width="20" height="18" viewBox="0 0 20 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9.95366 11.8571C13.0729 11.8571 15.7363 12.469 15.7363 14.9179C15.7363 17.3657 13.09 18 9.95366 18C6.83441 18 4.17099 17.388 4.17099 14.9402C4.17099 12.4913 6.81731 11.8571 9.95366 11.8571ZM14.941 10.3825C16.1335 10.3551 17.4155 10.5578 17.8893 10.7016C18.893 10.9458 19.5531 11.4443 19.8266 12.1687C20.0578 12.7635 20.0578 13.4534 19.8266 14.0472C19.4082 15.1708 18.0594 15.5315 17.5352 15.6247C17.4269 15.645 17.3398 15.5284 17.3512 15.3937C17.619 12.2802 15.4888 10.804 14.9377 10.4646C14.9141 10.4494 14.9092 10.4261 14.9117 10.4119C14.9133 10.4017 14.9231 10.3855 14.941 10.3825ZM4.83508 10.3804L5.05964 10.3829C5.07754 10.3859 5.0865 10.4021 5.08813 10.4113C5.09057 10.4265 5.08568 10.4487 5.06289 10.465C4.511 10.8044 2.38075 12.2806 2.64856 15.3931C2.65996 15.5288 2.57367 15.6444 2.46541 15.6251C1.94119 15.5319 0.59239 15.1712 0.173993 14.0476C-0.0579977 13.4528 -0.0579977 12.7639 0.173993 12.1691C0.447498 11.4447 1.10684 10.9462 2.1105 10.701C2.58507 10.5582 3.86631 10.3555 5.05964 10.3829L4.83508 10.3804ZM9.95366 0C12.0774 0 13.7803 2.11755 13.7803 4.76196C13.7803 7.40535 12.0774 9.52493 9.95366 9.52493C7.82993 9.52493 6.12704 7.40535 6.12704 4.76196C6.12704 2.11755 7.82993 0 9.95366 0ZM15.1485 0.794133C17.1998 0.794133 18.8107 3.19639 18.2621 5.8722C17.8917 7.67364 16.5511 8.87021 15.0574 8.82158C14.9076 8.81651 14.7603 8.79929 14.6178 8.76889C14.5144 8.7466 14.4623 8.60172 14.5209 8.49432C15.0908 7.45074 15.4155 6.19541 15.4155 4.84788C15.4155 3.44158 15.0606 2.13052 14.4444 1.05553C14.4249 1.0221 14.4102 0.970426 14.4298 0.931925C14.4461 0.900517 14.4762 0.884306 14.5047 0.8762C14.7122 0.823515 14.9255 0.794133 15.1485 0.794133ZM4.85084 0.794031C5.07388 0.794031 5.28715 0.823414 5.49553 0.876099C5.52321 0.884205 5.55414 0.901429 5.57042 0.931824C5.58914 0.970325 5.57531 1.022 5.55577 1.05543C4.93957 2.13042 4.58467 3.44148 4.58467 4.84777C4.58467 6.19531 4.90945 7.45064 5.47925 8.49422C5.53786 8.60162 5.48577 8.7465 5.38239 8.76879C5.23912 8.8002 5.0926 8.81641 4.94283 8.82148C3.44913 8.87011 2.10847 7.67354 1.7381 5.8721C1.18865 3.19629 2.79956 0.794031 4.85084 0.794031Z"
+                                    fill="var(--primary-text)" fill-opacity="0.7" />
+                            </svg>
+
+
+                            <a href="#" class="nav-link link-dark toggle_display">
+                                Community
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <svg class="icon" width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12.906 0C15.957 0 18 2.142 18 5.328V12.6819C18 15.858 15.957 18 12.906 18H5.103C2.052 18 0 15.858 0 12.6819V5.328C0 2.142 2.052 0 5.103 0H12.906ZM12.762 6.3C12.456 5.994 11.952 5.994 11.646 6.3L7.929 10.017L6.354 8.442C6.048 8.136 5.544 8.136 5.238 8.442C4.932 8.748 4.932 9.243 5.238 9.558L7.38 11.691C7.533 11.844 7.731 11.916 7.929 11.916C8.136 11.916 8.334 11.844 8.487 11.691L12.762 7.416C13.068 7.11 13.068 6.615 12.762 6.3Z"
+                                    fill="var(--primary-text)" fill-opacity="0.7" />
+                            </svg>
+
+                            <a href="#" class="nav-link link-dark toggle_display">
+                                Verificati
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <svg class="icon" width="18" height="17" viewBox="0 0 18 17" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M16.8628 0.651612C16.446 0.223791 15.8291 0.064407 15.2538 0.23218L1.84002 4.1329C1.2331 4.30151 0.802926 4.78553 0.687045 5.40042C0.568664 6.02621 0.982166 6.82062 1.52239 7.15281L5.7166 9.73063C6.14678 9.99488 6.70201 9.92861 7.05799 9.56957L11.8608 4.73688C12.1026 4.48522 12.5027 4.48522 12.7445 4.73688C12.9862 4.98015 12.9862 5.37441 12.7445 5.62607L7.93334 10.4596C7.57653 10.8178 7.50984 11.3756 7.77245 11.8085L10.3352 16.0448C10.6353 16.5481 11.1522 16.8333 11.7191 16.8333C11.7858 16.8333 11.8608 16.8333 11.9275 16.8249C12.5777 16.741 13.0946 16.2964 13.2864 15.6673L17.263 2.27062C17.4381 1.70019 17.2797 1.07943 16.8628 0.651612Z"
+                                    fill="var(--primary-text)" fill-opacity="0.70" />
+                            </svg>
+                            <a href="#" class="nav-link link-dark toggle_display">
+                                Chat
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="col py-3">
+                <nav class="mnavbar">
+                    <p class="path first-level">SoundMatch > </p>
+                    <p class="path msecond-level"> Home</p>
+                </nav>
+
+                <div class="mcontainer" style="max-width: 100%">
+                    <div class="mcard">
+                        <div class="slide-container swiper">
+                            <h2 class="card-title">I tuoi brani consigliati</h2>
+                            <div class="slide-content">
+                                <div class="card-wrapper swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img class="song-image" src="img/blues.jpeg">
+                                        <div class="">
+                                            <h4 style="margin: 10px 0px 0px 10px;">Brano 1</h4>
+                                            <p class="hint" style="margin: 0px 0px 0px 10px; font-size: 13px;">Brano 1
+                                            </p>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="swiper-slide">
+                                        <img class="song-image" src="img/blues.jpeg">
+                                        <div class="">
+                                            <h4 style="margin: 10px 0px 0px 10px;">Brano 1</h4>
+                                            <p class="hint" style="margin: 0px 0px 0px 10px; font-size: 13px;">Brano 1
+                                            </p>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="swiper-slide">
+                                        <img class="song-image" src="img/blues.jpeg">
+                                        <div class="">
+                                            <h4 style="margin: 10px 0px 0px 10px;">Brano 1</h4>
+                                            <p class="hint" style="margin: 0px 0px 0px 10px; font-size: 13px;">Brano 1
+                                            </p>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="swiper-slide">
+                                        <img class="song-image" src="img/blues.jpeg">
+                                        <div class="">
+                                            <h4 style="margin: 10px 0px 0px 10px;">Brano 1</h4>
+                                            <p class="hint" style="margin: 0px 0px 0px 10px; font-size: 13px;">Brano 1
+                                            </p>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="swiper-slide">
+                                        <img class="song-image" src="img/blues.jpeg">
+                                        <div class="">
+                                            <h4 style="margin: 10px 0px 0px 10px;">Brano 1</h4>
+                                            <p class="hint" style="margin: 0px 0px 0px 10px; font-size: 13px;">Brano 1
+                                            </p>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="swiper-slide">
+                                        <img class="song-image" src="img/blues.jpeg">
+                                        <div class="">
+                                            <h4 style="margin: 10px 0px 0px 10px;">Brano 1</h4>
+                                            <p class="hint" style="margin: 0px 0px 0px 10px; font-size: 13px;">Brano 1
+                                            </p>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="swiper-button-next swiper-navBtn"></div>
+                            <div class="swiper-button-prev swiper-navBtn"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+<!-- Swiper JS -->
+<script src="js/swiper-bundle.min.js"></script>
+
+<!-- JavaScript -->
+<script src="js/carusel.js"></script>
+
+</html>
