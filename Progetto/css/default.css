@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    /*font*/
+
+    font-family: 'Poppins', sans-serif;
+
+
+    /*colori*/
+    --primary-text: #2E3271;
+    --hint-text: hsla(221, 28%, 60%, 0.75);
+    --orange: #FF7E3A;
+
+    /*sfondo*/
+    background: #e0e5f3;
+}
+
+h1,
+.h1,
+h2,
+h3,
+h4,
+h5 {
+    color: var(--primary-text);
+    font-weight: 800;
+}
+
+h4,
+.h4 {
+    font-size: 14px !important;
+
+}
+
+h1,
+.h1 {
+    font-size: 23px !important;
+}
+
+h6,
+.h6 {
+    color: var(--hint-text);
+    font-weight: 100;
+}
+
+.hint {
+    color: var(--hint-text);
+    font-weight: lighter;
+}
+
+.mnavbar {
+    margin: 0;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    /* align vertical */
+
+}
+
+.path {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    color: var(--primary-text);
+}
+
+.first-level {
+    font-weight: 700;
+}
+
+.msecond-level {
+    padding-left: 5px;
+    opacity: 0.5;
+}
+
+.mcard {
+    background: #fff;
+    border-radius: 30px;
+    padding: 30px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
+
+/*Sovrascrizioni bootrap*/
+.active {
+    background: transparent !important;
+    color: var(--orange) !important;
+}
+
+.nav {
+    padding: 10px;
+}
+
+.nav-link {
+    display: inline-block !important;
+    min-width: 170px;
+    color: var(--primary-text);
+
+}
+
+.nav-item {
+    border-radius: 10px;
+    padding-left: 10px;
+    transition: 0.1s;
+    margin-top: 10px;
+}
+
+.nav-item:hover {
+    background: rgba(0, 0, 0, 0.1) !important;
+}
+
+
+
+/*Responsive*/
+@media (max-width: 1000px) {
+    .toggle_display {
+        display: none !important;
+    }
+
+    .icon {
+        width: 30px;
+        height: 30px;
+        margin: 10px;
+    }
+
+    .nav-item {
+        padding: 0;
+    }
+
+}
+
+/*Sovrascrizione swiper*/
+.swiper {
+    margin: 0 !important;
+}
+
+.py-3 {
+    overflow: hidden;
+}
+
+.slide-container {
+    padding: 0 !important;
+}
+
+.slide-content {
+    margin-top: 20px !important;
+}
+
+.slide-content {
+    border-radius: 0 !important;
+}
+
+/*Home page*/
+.song-image {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    object-fit: cover;
+    border-radius: 20px;
+
+}
