@@ -86,7 +86,7 @@
 						</script>
 						<br>
 						<div>
-							<button id="btn">Crea Account</button>
+							<button type="button" id="btn"><a href="sidebar2.html">Crea Account</a></button>
 						</div>						
 						<p class="message">Hai già un account? <a href="login.html" style="color: #54BEB8;">Login</a></p>
 					</form>
@@ -126,6 +126,7 @@
 							document.forms[0].reset();
 
 							console.warn('added', {users});
+							location.replace("./sidebar2.html");
 						}
 						else {
 							alert("La password non rispetta i requisiti minimi: \n Lunghezza minima: 8 caratteri \n Deve contenere una lettera maiuscola \n Deve contenere un carattere speciale \n Bisogna selezionare soltanto una delle due box")
