@@ -3,7 +3,7 @@ const { MongoClient } = require('mongodb');
 const express = require('express');
 
 async function main() {
-    const uri = "mongodb+srv://Luis:obligation-margarita-roux-gorsy@ingegneriasoftware.drj3eim.mongodb.net/?retryWrites=true&w=majority";
+    const uri = "";
     const client = new MongoClient(uri);
 
     try {
