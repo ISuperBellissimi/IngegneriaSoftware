@@ -2,17 +2,21 @@ const { application } = require('express');
 const { MongoClient } = require('mongodb');
 const express = require('express');
 
+require('dotenv').config();
+console.log(process.env.PRIVATE_KEY);
+
 async function main() {
-    const uri = "";
+    const uri = process.env.PRIVATE_KEY;
     const client = new MongoClient(uri);
 
     try {
         // Connect to the MongoDB cluster
         await client.connect();
-
+        
+        
         await createListing(client,  {
-            name: "Test",
-            summary: "wow",
+            name: "John",
+            summary: "testing",
             bedrooms: 1,
             bathrooms: 1
         })
@@ -27,7 +31,7 @@ async function main() {
 main().catch(console.error);
 
 async function createListing(client, newListing) {
-    const result = await client.db("sample_airbnb").collection("listingsAndReviews").insertOne(newListing);
+    const result = await client.db("database").collection("collection").insertOne(newListing);
 
     console.log(`New Listing created with the following id: ${result.insertedId}`)
 }

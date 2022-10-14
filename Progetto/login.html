@@ -14,7 +14,7 @@
 			</div>
 		</div>
 		<div class="form-container log-in-container">
-			<form action="#">
+			<form action="/login" method="POST">
 				<h1>Login</h1>
 				<div class="social-container">
                     <a href="#"><svg width="295" height="75" viewBox="0 0 295 75" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -31,13 +31,41 @@
 				</div>
 				<span style="color: grey;font-size:15px;">-Oppure-</span>
                 <br><br>
-				<input type="email" placeholder="Indirizzo Email" />
-				<input type="password" placeholder="Password" />
+				<input type="email" placeholder="Indirizzo Email" id="email" name="email" />
+				<input type="password" placeholder="Password" id="password" name="password" />
                 <br>
-				<button type="button"><a href="sidebar2.html">Accedi</a></button>
+				<button type="submit">Accedi</button>
                 <p class="message">Non sei registrato? <a href="registrazione.html" style="color: #54BEB8;">Crea un account</a></p>
 			</form>
 		</div>
+		<script>
+			document.querySelector('button')
+				.addEventListener('click', (e) => {
+					e.preventDefault();
+
+					const email = document
+						.querySelector('#email').value;
+	
+					const password = document
+						.querySelector('#password').value;
+						
+					fetch('/login', {
+						method: 'POST',
+						headers: {
+							Authorization: 'Bearer abcdxyz',
+							'Content-Type': 'application/json',
+						},
+						body: JSON.stringify({
+							email,
+							password,
+						}),
+					})
+						.then((res) => {
+							location.replace("./sidebar2.html");
+						})
+						.then((data) => console.log(data));
+			});
+		</script>
 		
 	</div>
 </body>

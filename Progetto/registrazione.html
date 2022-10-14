@@ -14,7 +14,7 @@
 			</div>
 		</div>
 		<div class="form-container log-in-container">
-			<form action="#">
+			<form action="/" method="POST">
 				<h1 style="margin: 0%;">Crea un account</h1>
 				<div class="social-container">
                     <a href="#"><svg width="295" height="75" viewBox="0 0 295 75" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -34,7 +34,7 @@
 				<div>
 					<form>
 						<div>
-							<input type="text" placeholder="Nome utente" id="nomeUtente" name="name" />
+							<input type="text" placeholder="Nome utente" id="name" name="name" required/>
 						</div>
 						<div>
 							<input type="email" placeholder="Indirizzo Email" id="email" name="email" />
@@ -49,12 +49,12 @@
 						<div>
 							<label class="checkbox" for="switch_artista">
 								Sono un artista
-								<input class="checkbox__input" type="checkbox" id="switch_artista" name="artista">
+								<input class="checkbox__input" type="checkbox" id="switch_artista" name="switch_artista">
 								<div class="checkbox__box"></div>
 							</label>
 							<label class="checkbox" for="switch_ascoltatore" style="margin-left: 50px;">
 								Sono un ascoltatore
-								<input class="checkbox__input" type="checkbox" id="switch_ascoltatore" name="ascoltatore">
+								<input class="checkbox__input" type="checkbox" id="switch_ascoltatore" name="switch_ascoltatore">
 								<div class="checkbox__box"></div>
 							</label>
 						</div>
@@ -86,41 +86,95 @@
 						</script>
 						<br>
 						<div>
-							<button type="button" id="btn">Crea Account</button>
+							<button type="submit" id="btn">Crea Account</button>
 						</div>						
 						<p class="message">Hai già un account? <a href="login.html" style="color: #54BEB8;">Login</a></p>
 					</form>
 				</div>
 				<script>
+					document.querySelector('button')
+						.addEventListener('click', (e) => {
+							e.preventDefault();
+							const name = document
+								.querySelector('#name').value;
+
+							const email = document
+								.querySelector('#email').value;
+			
+							const password = document
+								.querySelector('#password').value;
+
+							const confermaPassword = document
+								.querySelector('#confermaPassword').value;
+							
+							const switch_artista = document
+								.querySelector('#switch_artista');
+							
+							var boolArtista = "off";
+							if(switch_artista.checked) {
+								boolArtista = "on"
+							}
+
+							const switch_ascoltatore = document
+								.querySelector('#switch_ascoltatore');
+
+							var boolAscoltatore = "off";
+							if(switch_ascoltatore.checked) {
+								boolAscoltatore = "on"
+							}
+								
+							fetch('/', {
+								method: 'POST',
+								headers: {
+									Authorization: 'Bearer abcdxyz',
+									'Content-Type': 'application/json',
+								},
+								body: JSON.stringify({
+									name,
+									email,
+									password,
+									confermaPassword,
+									boolArtista,
+									boolAscoltatore,
+								}),
+							})
+								.then((res) => {
+									location.replace("./sidebar2.html");
+								})
+								.then((data) => console.log(data));
+					});
+				</script>
+				<!-- <script>
 					let users = [];
 					const addUser = (ev) => {
 						ev.preventDefault();
+						let name = document.getElementById('name').value;
+						let email = document.getElementById('email').value;
 						let password = document.getElementById('password').value;
 						let confermaPassword = document.getElementById('confermaPassword').value;
 						let switch_ascoltatore = document.getElementById("switch_ascoltatore");
 						let switch_artista = document.getElementById("switch_artista");
-						function controlCheck() {
-							if(switch_artista.checked && switch_ascoltatore.checked) {
-								console.log('Selezionare soltanto una casella');
-							} else if(!switch_artista.checked && !switch_ascoltatore.checked){
-								console.log('Selezionare una casella');
-							} else {
-								return true;
-							}
+						var boolArtista = "off";
+						if(switch_artista.checked) {
+							boolArtista = "on"
 						}
+						var boolAscoltatore = "off";
+						if(switch_ascoltatore.checked) {
+							boolAscoltatore = "on"
+						}
+
 						function checkPassword(str) {
 							var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 							return re.test(str);
 						}
-						if(password != confermaPassword) {
-							console.warn('La password e la conferma sono diverse');
-						}
-						else if(password === confermaPassword && checkPassword(password) && controlCheck()){
+						if(password === confermaPassword && checkPassword(password) && (name.length >= 2 && name.length <= 20) && (boolArtista != 'off' || boolAscoltatore != 'off')){
 							let user = {
-								id: Date.now(),
-								name: document.getElementById('nomeUtente').value,
+								name: document.getElementById('name').value,
 								email: document.getElementById('email').value,
-								password: document.getElementById('password').value
+								password: document.getElementById('password').value,
+								confermaPassword: document.getElementById('confermaPassword').value,
+								boolAscoltatore: boolAscoltatore,
+								boolArtista: boolArtista
 							}
 							users.push(user);
 							document.forms[0].reset();
@@ -129,14 +183,12 @@
 							location.replace("./sidebar2.html");
 						}
 						else {
-							alert("La password non rispetta i requisiti minimi: \n Lunghezza minima: 8 caratteri \n Deve contenere una lettera maiuscola \n Deve contenere un carattere speciale \n Bisogna selezionare soltanto una delle due box")
+							alert("La password non rispetta i requisiti minimi: \n Lunghezza minima: 8 caratteri \n Deve contenere una lettera maiuscola \n Deve contenere un carattere speciale \n Bisogna selezionare soltanto una delle due box \n Il nome deve essere lungo almeno 2 caratteri e massimo 20")
 							console.warn('la password non rispetta i requisiti minimi');
 						}
 					}
-					document.addEventListener('DOMContentLoaded', () => {
-					document.getElementById('btn').addEventListener('click', addUser);
-				});
-				</script>
+					document.addEventListener('DOMContentLoaded', () => {document.getElementById('btn').addEventListener('click', addUser);});
+				</script> -->
 			</form>
 		</div>
 		
