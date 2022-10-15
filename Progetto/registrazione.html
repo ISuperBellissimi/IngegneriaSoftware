@@ -144,51 +144,6 @@
 								.then((data) => console.log(data));
 					});
 				</script>
-				<!-- <script>
-					let users = [];
-					const addUser = (ev) => {
-						ev.preventDefault();
-						let name = document.getElementById('name').value;
-						let email = document.getElementById('email').value;
-						let password = document.getElementById('password').value;
-						let confermaPassword = document.getElementById('confermaPassword').value;
-						let switch_ascoltatore = document.getElementById("switch_ascoltatore");
-						let switch_artista = document.getElementById("switch_artista");
-						var boolArtista = "off";
-						if(switch_artista.checked) {
-							boolArtista = "on"
-						}
-						var boolAscoltatore = "off";
-						if(switch_ascoltatore.checked) {
-							boolAscoltatore = "on"
-						}
-
-						function checkPassword(str) {
-							var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-							return re.test(str);
-						}
-						if(password === confermaPassword && checkPassword(password) && (name.length >= 2 && name.length <= 20) && (boolArtista != 'off' || boolAscoltatore != 'off')){
-							let user = {
-								name: document.getElementById('name').value,
-								email: document.getElementById('email').value,
-								password: document.getElementById('password').value,
-								confermaPassword: document.getElementById('confermaPassword').value,
-								boolAscoltatore: boolAscoltatore,
-								boolArtista: boolArtista
-							}
-							users.push(user);
-							document.forms[0].reset();
-
-							console.warn('added', {users});
-							location.replace("./sidebar2.html");
-						}
-						else {
-							alert("La password non rispetta i requisiti minimi: \n Lunghezza minima: 8 caratteri \n Deve contenere una lettera maiuscola \n Deve contenere un carattere speciale \n Bisogna selezionare soltanto una delle due box \n Il nome deve essere lungo almeno 2 caratteri e massimo 20")
-							console.warn('la password non rispetta i requisiti minimi');
-						}
-					}
-					document.addEventListener('DOMContentLoaded', () => {document.getElementById('btn').addEventListener('click', addUser);});
-				</script> -->
 			</form>
 		</div>
 		

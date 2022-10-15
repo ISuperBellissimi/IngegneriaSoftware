@@ -5,9 +5,10 @@ const express = require('express');
 const app = express();
 const { MongoClient } = require('mongodb');
 const url = require('url');
+const bcrypt = require('bcrypt');
+const { mainModule } = require('process');
 
 require('dotenv').config();
-console.log(process.env.PRIVATE_KEY);
 
 const uri = process.env.PRIVATE_KEY;
 const client = new MongoClient(uri);
@@ -32,7 +33,7 @@ client.connect(function(err, database) {
  });
 var collection = client.db("Users").collection("LoginInfo");
 
-app.post('/',(req,res) => {
+app.post('/',async (req,res) => {
     const { name, email, password, confermaPassword, boolArtista, boolAscoltatore } = req.body;
 
     async function main() {
@@ -46,10 +47,19 @@ app.post('/',(req,res) => {
                     console.log("Questo nome utente è gia registrato sul nostro sito");
             }
             else {
-                if(!insertUser(name, email, password, confermaPassword, boolArtista, boolAscoltatore))
-                    console.log("upsie");
-                else
+                if(password === confermaPassword && checkPassword(password) && (name.length >= 2 && name.length <= 20) && (boolArtista != 'off' || boolAscoltatore != 'off')) {
+                    const hashedPassword = await bcrypt.hash(password, 10);
+                    await createListing(client,  {
+                        name: name,
+                        email: email,
+                        password: hashedPassword,
+                        switch_artista: boolArtista,
+                        switch_ascoltatore: boolAscoltatore
+                    })
                     res.redirect('/');
+                } else {
+                    console.log('Inserire un nome utente e una password decenti');
+                }
             }
         } catch (e) {
             console.error(e);
@@ -62,12 +72,14 @@ app.post('/login', async (req,res) => {
     const { email, password } = req.body;
     try {
         const useremail = await collection.findOne({email : email});
-        console.log(useremail);
-        if(useremail.password != password) {
-            res = 404;
-            console.log("errata " + res);
-        } else {
-            res.redirect('/login');
+        if(useremail != null) {
+            const validPassword = await bcrypt.compare(password, useremail.password);
+            if(validPassword) {
+                res.redirect('/login');
+            } else {
+                res = 404;
+                console.log("errata " + res);
+            }
         }
     } catch (e) {
         console.error(e);
@@ -77,31 +89,6 @@ app.post('/login', async (req,res) => {
 function checkPassword(str) {
     var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
     return re.test(str);
-}
-async function checkExistingUser(email) {
-    try {
-        const useremail = await collection.findOne({email : email});
-        if(useremail != null) return true;
-        return false;
-    } catch (e) {
-        console.error(e);
-    }
-}
-async function insertUser(name, email, password, confermaPassword, boolArtista, boolAscoltatore) {
-    if(password === confermaPassword && checkPassword(password) && (name.length >= 2 && name.length <= 20) && (boolArtista != 'off' || boolAscoltatore != 'off')) {
-        await createListing(client,  {
-            name: name,
-            email: email,
-            password: password,
-            confermaPassword: confermaPassword,
-            switch_artista: boolArtista,
-            switch_ascoltatore: boolAscoltatore
-        })
-        return true;
-    } else {
-        console.log('Inserire un nome utente e una password decenti')
-        return false;
-    }
 }
 
 async function createListing(client, newListing) {
@@ -113,20 +100,3 @@ async function createListing(client, newListing) {
 app.listen(port,() => {
     console.log(`Server started at http://localhost:${port}`);
 }); 
-
-/* function findUser(email, password) {
-    var risultato = false;
-    collection.findOne({email : email, password : password}, function(err,doc){
-        if(err) throw err;
-        if(doc){
-            console.log("Found: "+email+" "+password);
-            risultato = true;
-        }
-        else{
-            console.log("Not found: "+email);
-            risultato =  false;
-        }
-    });
-    return risultato;
-}
- */

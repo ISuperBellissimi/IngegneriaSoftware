@@ -1,3 +1,5 @@
 .DS_Store
 /Progetto/.env
-/Progetto/node_modules
+node_modules
+package-lock.json
+package.json
